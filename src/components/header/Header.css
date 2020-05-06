@@ -1,0 +1,15 @@
+.r-border {
+   box-sizing: border-box;
+   height: 86px;
+   border-bottom: 0.06rem solid #D8D8D8;
+   border-left: 0.03rem solid #D8D8D8 ;
+   border-right: 0.03rem solid #D8D8D8 ;
+   background-color: #FFFFFF;
+}
+
+.r-logo {
+   height: 39px;
+   width: 174px;
+   margin-top: 16px;
+   margin-right: 16px;
+}
