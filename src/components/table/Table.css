@@ -31,7 +31,7 @@
     width: 39rem;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
-    background-color: #F7F7F7;
+    /* background-color: #F7F7F7; */
     margin-left: 18rem;
 }
 
@@ -48,6 +48,13 @@
     font-size: 15px;
     letter-spacing: 0;
     line-height: 26px;
+}
+
+.search-cont {
+    width: 100%;
+    height: 99% !important;
+    border-radius: 5px;
+    background-color: #F7F7F7;
 }
 
 .table-title-cont {
@@ -155,7 +162,7 @@
     }
 
     .table-title-cont {
-        height: 35px;
+        height: 68px;
     }
     
     .sub-title {

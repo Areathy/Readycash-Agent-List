@@ -8,26 +8,39 @@
       </div>
     </div>
 
-    <div class="container cont-scroll" style="padding-right: 10px;">
-      <div class="row">
-        <div class="col-sm-12 center-block">
-          <Table />
-        </div>
-      </div>
-    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
 import Header from "./components/header/Header.vue";
-import Table from "./components/table/Table.vue";
+
+
 
 export default {
   name: "App",
   components: {
-    Header,
-    Table
-  }
+    Header
+  },
+
+  mounted() {
+    this.redirectUser()
+  },
+
+  methods: {
+    redirectUser() {
+      const auth = localStorage.getItem('authorization')
+      if (auth) {
+
+        this.$router.push({ name: 'agent'})
+        
+      } else {
+        this.$router.push('/');
+      }
+    }
+
+  }  
+
 };
 </script>
 

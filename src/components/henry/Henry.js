@@ -13,7 +13,7 @@ export default {
 
    mounted() {
       this.changeCashPool(),
-         this.changeBalance()
+      this.changeBalance()
    },
 
    methods: {
