@@ -7,13 +7,12 @@ export default {
          phone: "08088222567",
          cashPool: "N50,000,000.00",
          balance: "N345,000.00"
-         // show: false
       }
    },
 
    mounted() {
       this.changeCashPool(),
-      this.changeBalance()
+         this.changeBalance()
    },
 
    methods: {
