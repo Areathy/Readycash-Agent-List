@@ -31,7 +31,7 @@
     width: 39rem;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
-    background-color: #F7F7F7;
+    /* background-color: #F7F7F7; */
     margin-left: 18rem;
 }
 
@@ -48,6 +48,13 @@
     font-size: 15px;
     letter-spacing: 0;
     line-height: 26px;
+}
+
+.search-cont {
+    width: 100%;
+    height: 99% !important;
+    border-radius: 5px;
+    background-color: #F7F7F7;
 }
 
 .table-title-cont {
@@ -127,13 +134,14 @@
 /* Media Query */
 @media only screen and (max-width: 780px) {
     .r-title {
-        font-size: 15px;
+        font-size: 7px;
         margin-left: 0px;
     }
 
     .r-search {
-     width: 30rem;
+     width: 24rem;
      margin-left: 7rem;
+     margin-top: -4rem;
     }
 
     .r-icon {
@@ -145,5 +153,21 @@
 
     .r-search-text {
         font-size: 10px;
+    }
+
+    .table-content {
+        font-size: 6px;
+        margin-left: 0rem;
+        padding: 0px;
+    }
+
+    .table-title-cont {
+        height: 68px;
+    }
+    
+    .sub-title {
+        font-size: 8px;
+        margin-left: 0rem;
+        padding: 0px;
     }
   }
