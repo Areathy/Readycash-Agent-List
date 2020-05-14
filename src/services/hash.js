@@ -11,13 +11,13 @@ export default {
     name: "Hash",
 
     
-    var md5 = function(value) {
-        return CryptoJS.MD5(value).toString();
-    } ("input").keyup(function () {
-        var value = (this).val(),
-            hash = md5(value);
-        (".test").html(hash);
-    });
+    // var md5 = function(value) {
+    //     return CryptoJS.MD5(value).toString();
+    // } ("input").keyup(function () {
+    //     var value = (this).val(),
+    //         hash = md5(value);
+    //     (".test").html(hash);
+    // });
 
 }
   
