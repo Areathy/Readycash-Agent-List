@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '../apis/readycash'
 import {hashPassword} from './hash.js';
 import 'vuejs-noty/dist/vuejs-noty.css';
 
@@ -18,38 +18,21 @@ export default {
 
   methods: {
     fetchUsers() {
-      const params = new URLSearchParams();
-      params.append('userName', this.userName); // 0000100047 
+       const params = new URLSearchParams();
+       params.append('userName', this.userName); 
        params.append('password', hashPassword(this.password)); 
-      axios.post('http://62.173.32.30:8080/rc/rest/agent/login', params)
-      .then(res=>{
-        console.log(res);
-        if(res) {
-          const auth = res.headers.authorization
-          localStorage.setItem('authorization', auth)
-          // axios.defaults.headers.authorization = `${auth}`;
-          
-          this.$router.push({name: 'agent'});
-        } 
-       })
-
-      .catch(e=>{
-        if(e) {
-          // this.errors = 'Incorrect password entered, Please check your password and try again' 
-          // alert(this.errors)
+        api.post('/agent/login', params)
+       .then((response) =>{
+          localStorage.setItem('authorization', response.headers.authorization)
+          this.$router.push({name: 'agent'}) })
+       .catch( (error) => {
+          console.log(error.message)
           this.errors = this.$noty.error('Incorrect password entered, Please check your password and try again', {
             timeout: 5000,
             layout: 'topCenter',
             theme: "metroui",
           })
-
-        }
       })
-
-      // Error message
-      // this.$noty.error("Oops, something went wrong!")
-
-      
     }
   } 
 };
