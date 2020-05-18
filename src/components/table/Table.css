@@ -31,29 +31,30 @@
     width: 39rem;
     border: 1px solid #D1D1D1;
     border-radius: 5px;
-    /* background-color: #F7F7F7; */
+    background-color: #F7F7F7;
     margin-left: 18rem;
 }
 
 .r-icon {
     height: 19px;
     width: 18px;
-    margin-left: 2rem;
-}
-
-.r-search-text {
-    height: 26px;
-    color: #A5A5A5;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    letter-spacing: 0;
-    line-height: 26px;
+    margin-left: 1rem;
 }
 
 .search-cont {
     width: 100%;
     height: 99% !important;
-    border-radius: 5px;
+    background-color: #F7F7F7;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    color: #A5A5A5;
+    font-size: 15px;
+    letter-spacing: 0;
+    margin-left: 0.8rem;
+}
+
+.search-buttom {
+    border: none;
     background-color: #F7F7F7;
 }
 
@@ -146,13 +147,21 @@
 
     .r-icon {
         margin-left: 1rem;
-        height: 10px;
-        width: 9px;
+        height: 13px;
+        width: 12px;
         margin-left: 0px;
     }
 
-    .r-search-text {
-        font-size: 10px;
+    .search-cont {
+        width: 100%;
+        height: 99% !important;
+        background-color: #F7F7F7;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+        color: #A5A5A5;
+        font-size: 9.2px;
+        letter-spacing: 0;
+        margin-left: 0.8rem;
     }
 
     .table-content {

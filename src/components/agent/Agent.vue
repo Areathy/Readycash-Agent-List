@@ -10,9 +10,8 @@
                   <div class="col-sm-5 r-title">Agent List</div>
                   <div class="col-sm-5">
                      <div class="r-search">
-                     <!-- <img src="./search.svg" alt="search" logo class="r-icon" /> -->
-                     <!-- <div class="r-search-text">Search by agent id, name, phone number</div> -->
-                     <input class="search-cont r-search-text" type="text" placeholder="Search by agent id, name, phone number" />
+                        <button type="submit" class="search-buttom"><img src="./search.svg" alt="search" logo class="r-icon" /></button>
+                        <input class="search-cont" type="text" placeholder="Search by agent id, name or phone number" />
                      </div>
                   </div>
                </div>

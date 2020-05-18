@@ -38,19 +38,22 @@ export default {
       const auth = localStorage.getItem('authorization')
       this.balanceState.loading = true;
       const {realId} = this.agent;
-      axios.get(`http://62.173.32.30:8080/rc/rest/agent/downlines/${realId}/balance`, {
+          axios.get(`http://62.173.32.30:8080/rc/rest/agent/downlines/${realId}/balance`, {
         headers: {
           'Authorization': auth
         }
       })
       .then(res => {
-        // setInterval(() => {        
+                
             this.balanceState.data = res.data
             console.log(this.balanceState)
-        // }, 4000)
-      }).finally(() => {
+        
+      })
+      .finally(() => {
         this.balanceState.loading = false;
       })
+
+      // setInterval(this.getBalance, 30000);
     },
 
   }

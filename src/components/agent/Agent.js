@@ -36,8 +36,14 @@ export default {
         
       .catch(e=>{
         if(e) {
-          this.errors = "Please set Bearer-token" 
-          alert(this.errors)
+          // this.errors = 'Incorrect password entered, Please check your password and try again' 
+          // alert(this.errors)
+          this.errors = this.$noty.warning('Please set Bearer-token', {
+            timeout: 4000,
+            layout: 'topCenter',
+            theme: "metroui",
+          })
+
         }
       })        
     }, 
@@ -52,7 +58,7 @@ export default {
     reLogin() {
       setTimeout(() => {
         localStorage.clear();
-      }, 120000);
+      }, 5400000);
    }
     // getBalance(id) {
     //   const auth = localStorage.getItem('authorization')
