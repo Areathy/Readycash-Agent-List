@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from '../../apis/readycash';
 import AgentItem from "../agent-item/index.vue";
 
 export default {
@@ -24,7 +24,7 @@ export default {
   methods: {
     fetchUsers() {
       const auth = localStorage.getItem('authorization')
-      axios.get('http://62.173.32.30:8080/rc/rest/agent/downlines', {
+      api.get('/agent/downlines', {
         headers: {
           'Authorization': auth
         }
@@ -34,18 +34,16 @@ export default {
           console.log(this.agents)
         })
         
-      .catch(e=>{
-        if(e) {
-          // this.errors = 'Incorrect password entered, Please check your password and try again' 
-          // alert(this.errors)
-          this.errors = this.$noty.warning('Please set Bearer-token', {
-            timeout: 4000,
-            layout: 'topCenter',
-            theme: "metroui",
-          })
-
-        }
-      })        
+        .catch( (error) => {
+          if(error) {
+            console.log(error.response.data);
+            this.errors = this.$noty.error(error.response.data, {
+              timeout: 5000,
+              layout: 'topCenter',
+              theme: "metroui",
+            })
+          }
+      })    
     }, 
 
     redirectUser() {
