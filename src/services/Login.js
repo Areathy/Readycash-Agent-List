@@ -19,9 +19,7 @@ export default {
   methods: {
     fetchUsers() {
       const params = new URLSearchParams();
-      params.append('hashed password', hashPassword(this.password))
-      params.append('userName', this.userName); // 0000100047
-      // params.append('password', this.password); 
+      params.append('userName', this.userName); // 0000100047 
        params.append('password', hashPassword(this.password)); 
       axios.post('http://62.173.32.30:8080/rc/rest/agent/login', params)
       .then(res=>{
