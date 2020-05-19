@@ -9,10 +9,10 @@
                <div class="row r-header">
                   <div class="col-sm-5 r-title">Agent List</div>
                   <div class="col-sm-5">
-                     <div class="r-search">
-                        <button type="submit" class="search-buttom"><img src="./search.svg" alt="search" logo class="r-icon" /></button>
-                        <input class="search-cont" type="text" placeholder="Search by agent id, name or phone number" />
-                     </div>
+                     <form class="r-search">
+                        <button type="submit" class="search-buttom"><img src="./search.svg" alt="search" logo class="r-icon" @click='agentSearch'/></button>
+                        <input class="search-cont" placeholder="Search by agent id, name or phone number" v-model="search" />
+                     </form>
                   </div>
                </div>
             </div>
@@ -36,10 +36,18 @@
                      <b>Income Balance</b>
                   </div>
                </div>
-               
-               <div v-for="agent in agents" :key="agent.id">
+               <div v-if="!isSearch">
+                  <div v-for="agent in agents" :key="agent.id">
                   <agent-item :agent="agent" />     
                </div>
+               </div>
+               <div v-if="isSearch">
+                  <div class="row content-cont">
+                     <div class="col-3 table-content">{{agents.fullName}}</div>
+                     <div class="col table-content">{{agents.realId}}</div>
+                     <div class="col table-content">{{agents.phoneNumber}}</div> 
+                  </div>
+               </div>               
                <div style="border-top: 0.03rem solid #D9D9D9"></div>
             </div>
          </div>

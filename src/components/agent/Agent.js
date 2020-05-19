@@ -10,15 +10,16 @@ export default {
     return {
       agents: null,
       balance: null,
-      errors: null
-      // search:""
+      errors: null,
+      search:"",
+      isSearch: false
     }
   },
   
   mounted() {
-    this.fetchUsers()
-    this.redirectUser()
-    this.reLogin()
+    this.fetchUsers();
+    this.redirectUser();
+    this.reLogin();
   },
 
   methods: {
@@ -46,6 +47,16 @@ export default {
       })    
     }, 
 
+    agentSearch() {
+      this.agents.map(item => {
+        if(item.phoneNumber == this.search || item.fullName == this.search || item.realId == this.search ) {
+          this.agents = item
+          this.isSearch = true
+          console.log(this.search)
+        }
+        })
+    },
+
     redirectUser() {
       const auth = localStorage.getItem('authorization')
       if (!auth) {
@@ -58,21 +69,6 @@ export default {
         localStorage.clear();
       }, 5400000);
    }
-    // getBalance(id) {
-    //   const auth = localStorage.getItem('authorization')
-    //   axios.get(`http://62.173.32.30:8080/rc/rest/agent/downlines/${id}/balance`, {
-    //     headers: {
-    //       'Authorization': auth
-    //     }
-    //   })
-    //   .then(res => {
-
-    //     // setInterval(() => {        
-    //         this.balance = res.data
-    //         console.log(this.balance)
-    //     // }, 4000)
-    //   })
-    // },
   }
 
   // computed: {

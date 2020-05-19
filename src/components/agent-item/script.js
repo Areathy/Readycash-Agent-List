@@ -53,17 +53,8 @@ export default {
         this.balanceState.loading = false;
       })
 
-      // setInterval(this.getBalance, 30000);
+      setInterval(this.getBalance, 30000);
     },
 
   }
-
-  // computed: {
-  //   agentSearch: function() {
-  //     return this.agents.filter((agent) =>{
-  //       return agent.fullName.match(this.search)
-  //     })
-  //   }
-  // }
-
 }
