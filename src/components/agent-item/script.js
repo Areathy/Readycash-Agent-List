@@ -53,7 +53,7 @@ export default {
         this.balanceState.loading = false;
       })
 
-      setInterval(this.getBalance, 30000);
+      setInterval(this.getBalance, 200000);
     },
 
   }
