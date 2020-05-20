@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from '../../apis/readycash';
 import AgentItem from "../agent-item/index.vue";
 
 export default {
@@ -10,21 +10,22 @@ export default {
     return {
       agents: null,
       balance: null,
-      errors: null
-      // search:""
+      errors: null,
+      search:"",
+      isSearch: false
     }
   },
   
   mounted() {
-    this.fetchUsers()
-    this.redirectUser()
-    this.reLogin()
+    this.fetchUsers();
+    this.redirectUser();
+    this.reLogin();
   },
 
   methods: {
     fetchUsers() {
       const auth = localStorage.getItem('authorization')
-      axios.get('http://62.173.32.30:8080/rc/rest/agent/downlines', {
+      api.get('/agent/downlines', {
         headers: {
           'Authorization': auth
         }
@@ -34,19 +35,27 @@ export default {
           console.log(this.agents)
         })
         
-      .catch(e=>{
-        if(e) {
-          // this.errors = 'Incorrect password entered, Please check your password and try again' 
-          // alert(this.errors)
-          this.errors = this.$noty.warning('Please set Bearer-token', {
-            timeout: 4000,
-            layout: 'topCenter',
-            theme: "metroui",
-          })
-
-        }
-      })        
+        .catch( (error) => {
+          if(error) {
+            console.log(error.response.data);
+            this.errors = this.$noty.error(error.response.data, {
+              timeout: 5000,
+              layout: 'topCenter',
+              theme: "metroui",
+            })
+          }
+      })    
     }, 
+
+    agentSearch() {
+      this.agents.map(item => {
+        if(item.phoneNumber == this.search || item.fullName == this.search || item.realId == this.search ) {
+          this.agents = item
+          this.isSearch = true
+          console.log(this.search)
+        }
+        })
+    },
 
     redirectUser() {
       const auth = localStorage.getItem('authorization')
@@ -60,21 +69,6 @@ export default {
         localStorage.clear();
       }, 5400000);
    }
-    // getBalance(id) {
-    //   const auth = localStorage.getItem('authorization')
-    //   axios.get(`http://62.173.32.30:8080/rc/rest/agent/downlines/${id}/balance`, {
-    //     headers: {
-    //       'Authorization': auth
-    //     }
-    //   })
-    //   .then(res => {
-
-    //     // setInterval(() => {        
-    //         this.balance = res.data
-    //         console.log(this.balance)
-    //     // }, 4000)
-    //   })
-    // },
   }
 
   // computed: {

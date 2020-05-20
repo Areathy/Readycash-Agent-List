@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from '../../apis/readycash';
 
 export default {
   name: "AgentItem",
@@ -38,7 +38,7 @@ export default {
       const auth = localStorage.getItem('authorization')
       this.balanceState.loading = true;
       const {realId} = this.agent;
-          axios.get(`http://62.173.32.30:8080/rc/rest/agent/downlines/${realId}/balance`, {
+      api.get(`agent/downlines/${realId}/balance`, {
         headers: {
           'Authorization': auth
         }
@@ -53,17 +53,8 @@ export default {
         this.balanceState.loading = false;
       })
 
-      // setInterval(this.getBalance, 30000);
+      setInterval(this.getBalance, 200000);
     },
 
   }
-
-  // computed: {
-  //   agentSearch: function() {
-  //     return this.agents.filter((agent) =>{
-  //       return agent.fullName.match(this.search)
-  //     })
-  //   }
-  // }
-
 }
