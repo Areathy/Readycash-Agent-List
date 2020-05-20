@@ -8,7 +8,7 @@ export default {
 
   data: function () {
     return {
-      agents: null,
+      agents: [],
       balance: null,
       errors: null,
       search:"",
