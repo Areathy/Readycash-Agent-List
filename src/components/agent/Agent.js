@@ -22,6 +22,16 @@ export default {
     this.reLogin();
   },
 
+  computed: {
+      filteredAgents() {
+        return this.agents.filter( agent => {
+          return agent.fullName.toLowerCase().includes(this.search.toLowerCase()) || 
+                agent.phoneNumber.toLowerCase().includes(this.search.toLowerCase()) ||
+                agent.realId.toLowerCase().includes(this.search.toLowerCase())
+       }) 
+      }
+  },
+
   methods: {
     fetchUsers() {
       const auth = localStorage.getItem('authorization')
@@ -46,16 +56,6 @@ export default {
           }
       })    
     }, 
-
-    agentSearch() {
-      this.agents.map(item => {
-        if(item.phoneNumber == this.search || item.fullName == this.search || item.realId == this.search ) {
-          this.agents = item
-          this.isSearch = true
-          console.log(this.search)
-        }
-        })
-    },
 
     redirectUser() {
       const auth = localStorage.getItem('authorization')
