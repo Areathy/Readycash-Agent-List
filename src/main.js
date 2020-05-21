@@ -70,7 +70,7 @@ window.vm = new Vue({
         this.isLoggedIn = true;
         this.isAppReady = true;
         // readyToken();
-        console.debug('ready');
+        // console.debug('ready');
       }, 1000);
 
 

@@ -46,14 +46,13 @@ export default {
       .then(res => {
                 
             this.balanceState.data = res.data
-            console.log(this.balanceState)
         
       })
       .finally(() => {
         this.balanceState.loading = false;
       })
 
-      setInterval(this.getBalance, 200000);
+      setInterval(this.getBalance, 300000);
     },
 
   }

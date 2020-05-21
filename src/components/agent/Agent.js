@@ -11,8 +11,8 @@ export default {
       agents: [],
       balance: null,
       errors: null,
-      search:"",
-      isSearch: false
+      search:""
+      // isSearch: false
     }
   },
   
@@ -42,12 +42,10 @@ export default {
       })
         .then(res => {
           this.agents = res.data
-          console.log(this.agents)
         })
         
         .catch( (error) => {
           if(error) {
-            console.log(error.response.data);
             this.errors = this.$noty.error(error.response.data, {
               timeout: 5000,
               layout: 'topCenter',
@@ -70,13 +68,5 @@ export default {
       }, 5400000);
    }
   }
-
-  // computed: {
-  //   agentSearch: function() {
-  //     return this.agents.filter((agent) =>{
-  //       return agent.fullName.match(this.search)
-  //     })
-  //   }
-  // }
 
 }
