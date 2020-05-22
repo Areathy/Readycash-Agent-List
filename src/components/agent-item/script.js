@@ -56,7 +56,7 @@ export default {
         this.balanceState.loading = false;
       })
       .catch( (error) => {
-        if(error) {          
+        if(error && !auth) {          
           clearInterval(this.refreshBalance);
         }
       }); 
@@ -72,7 +72,7 @@ export default {
       if (!auth) {
         this.$router.push('/');
         this.$noty.error('Bearer token is not set', {
-          timeout: 5000,
+          timeout: 10000,
           layout: 'topCenter',
           theme: 'metroui',
         })
