@@ -49,13 +49,6 @@
                 <agent-item :agent="agent" />
               </div>
             </div>
-            <!-- <div v-if="isSearch">
-              <div class="row content-cont">
-                <div class="col-3 table-content">{{ agents.fullName }}</div>
-                <div class="col table-content">{{ agents.realId }}</div>
-                <div class="col table-content">{{ agents.phoneNumber }}</div>
-              </div>
-            </div> -->
             <div style="border-top: 0.03rem solid #D9D9D9"></div>
           </div>
         </div>

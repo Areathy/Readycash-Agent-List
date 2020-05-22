@@ -12,14 +12,11 @@ export default {
       balance: null,
       errors: null,
       search:""
-      // isSearch: false
     }
   },
   
   mounted() {
-    this.fetchUsers();
-    this.redirectUser();
-    this.reLogin();
+    this.fetchUsers();   
   },
 
   computed: {
@@ -46,27 +43,13 @@ export default {
         
         .catch( (error) => {
           if(error) {
-            this.errors = this.$noty.error(error.response.data, {
-              timeout: 5000,
-              layout: 'topCenter',
-              theme: "metroui",
-            })
+            localStorage.clear();
+            this.$router.push('/');
           }
       })    
     }, 
 
-    redirectUser() {
-      const auth = localStorage.getItem('authorization')
-      if (!auth) {
-        this.$router.push('/');
-      }
-    },
     
-    reLogin() {
-      setTimeout(() => {
-        localStorage.clear();
-      }, 5400000);
-   }
   }
 
 }

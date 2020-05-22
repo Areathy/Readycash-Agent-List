@@ -1,7 +1,8 @@
 import api from '../../apis/readycash';
+import 'vuejs-noty/dist/vuejs-noty.css';
 
 export default {
-  name: "AgentItem",
+  name: 'AgentItem',
 
   props: {
     agent: {
@@ -15,13 +16,18 @@ export default {
     return {
       balanceState: {
         loading: false,
-        data: null
+        data: []
       },
+      refreshBalance: setInterval(this.getBalance, 300000)
     }
   },
   
   created() {
     this. getBalance();
+  },
+
+  updated(){
+    this.redirectUser();
   },
 
   computed: {
@@ -43,17 +49,36 @@ export default {
           'Authorization': auth
         }
       })
-      .then(res => {
-                
+      .then(res => {                
             this.balanceState.data = res.data
-        
       })
       .finally(() => {
         this.balanceState.loading = false;
       })
+      .catch( (error) => {
+        if(error) {          
+          clearInterval(this.refreshBalance);
+        }
+      }); 
 
-      setInterval(this.getBalance, 300000);
+     
     },
+
+    redirectUser() {
+      const auth = localStorage.getItem('authorization')
+      setTimeout(() => {
+        localStorage.clear();
+      }, 18000000);
+      if (!auth) {
+        this.$router.push('/');
+        this.$noty.error('Bearer token is not set', {
+          timeout: 5000,
+          layout: 'topCenter',
+          theme: 'metroui',
+        })
+      }
+    },
+    
 
   }
 }
