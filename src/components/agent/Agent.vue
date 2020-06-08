@@ -60,4 +60,4 @@
 
 <script src="./Agent.js" />
 
-<style src="../table/Table.css" lang="css" />
+<style src="../style.css" lang="css" />

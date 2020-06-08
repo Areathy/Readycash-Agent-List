@@ -1,4 +1,4 @@
-import api from '../apis/readycash'
+import api from '../../apis/readycash'
 import {hashPassword} from './hash.js';
 import 'vuejs-noty/dist/vuejs-noty.css';
 

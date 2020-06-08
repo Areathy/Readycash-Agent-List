@@ -4,8 +4,8 @@
    <div class="col table-content">{{agent.realId}}</div>
    <div class="col table-content">{{agent.phoneNumber}}</div>
    <div class="col table-content balance" v-if="balance.main < 20000" style="color: red">{{loading ? '...' : balance.main.replace(/\B(?=(\d{3})+\b)/g, ",")}}</div>
-   <div class="col table-content balance" v-else>{{loading ? '...' : balance.main.replace(/\B(?=(\d{3})+\b)/g, ",")}}</div>
-   <div class="col table-content balance">{{loading ? '...' : balance.income.replace(/\B(?=(\d{3})+\b)/g, ",")}}</div>      
+   <div class="col table-content balance" v-else>{{loading ? 'loading...' : balance.main.replace(/\B(?=(\d{3})+\b)/g, ",")}}</div>
+   <div class="col table-content balance">{{loading ? 'loading...' : balance.income.replace(/\B(?=(\d{3})+\b)/g, ",")}}</div>      
 </div>
 </template>
 

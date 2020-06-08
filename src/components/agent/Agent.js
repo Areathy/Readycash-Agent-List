@@ -1,5 +1,5 @@
 import api from '../../apis/readycash';
-import AgentItem from "../agent-item/index.vue";
+import AgentItem from "../agent-balance/index.vue";
 
 export default {
   name: "Agent",
