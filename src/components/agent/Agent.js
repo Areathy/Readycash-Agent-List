@@ -1,4 +1,4 @@
-import api from "../../apis/readycash";
+import api from '../../apis/readycash';
 import AgentItem from "../agent-balance/index.vue";
 
 export default {
@@ -11,12 +11,12 @@ export default {
       agents: [],
       balance: null,
       errors: null,
-      search: "",
-    };
+      search:""
+    }
   },
 
   mounted() {
-    this.fetchUsers();
+    this.fetchUsers();   
   },
 
   computed: {
@@ -33,23 +33,25 @@ export default {
 
   methods: {
     fetchUsers() {
-      const auth = localStorage.getItem("authorization");
-      api
-        .get("/agent/downlines", {
-          headers: {
-            Authorization: auth,
-          },
+      const auth = localStorage.getItem('authorization')
+      api.get('/agent/downlines', {
+        headers: {
+          'Authorization': auth
+        }
+      })
+        .then(res => {
+          this.agents = res.data
         })
-        .then((res) => {
-          this.agents = res.data;
-        })
-
-        .catch((error) => {
-          if (error) {
+        
+        .catch( (error) => {
+          if(error) {
             localStorage.clear();
-            this.$router.push("/");
+            this.$router.push('/');
           }
-        });
-    },
-  },
-};
+      })    
+    }, 
+
+    
+  }
+
+}

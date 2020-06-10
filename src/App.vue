@@ -16,8 +16,6 @@
 <script>
 import Header from "./components/header/Header.vue";
 
-
-
 export default {
   name: "App",
   components: {
@@ -38,4 +36,4 @@ export default {
   padding: 0px !important;
 }
 </style>
-<style src="./components/table/Table.css" lang="css" />
+<style src="./components/style.css" lang="css" />
